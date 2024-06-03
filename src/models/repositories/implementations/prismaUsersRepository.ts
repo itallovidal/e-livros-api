@@ -24,13 +24,13 @@ export class PrismaUsersRepository
     await this.prisma.user.create({ data: user })
   }
 
-  // async getUserByEmail(email: string): Promise<IUser | null> {
-  //   const user = await this.prisma.user.findUnique({
-  //     where: {
-  //       email,
-  //     },
-  //   })
-  //
-  //   return user
-  // }
+  async getUserByEmail(email: string): Promise<any> {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        email,
+      },
+    })
+
+    return user
+  }
 }

@@ -1,7 +1,7 @@
 import { Body, Controller, Inject, Post } from '@nestjs/common'
 import { ZodValidationPipe } from './pipes/zodValidationPipe'
 import { createUserSchema, ICreateUser } from '../models/validation'
-import { CreateUserService } from '../models/services/createUserService'
+import { CreateUserService } from '../models/services/createUser.service'
 
 @Controller('users')
 export class CreateUserController {
