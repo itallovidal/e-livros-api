@@ -8,8 +8,7 @@ datasource db {
 }
 
 model User {
-  id         String     @id @default(uuid())
-  email      String     @unique
+  email      String     @id @unique
   name       String
   password   String
   created_at DateTime   @default(now())
@@ -23,7 +22,7 @@ model User {
 model alugados {
   id             String   @id @default(uuid())
   user_id        String   @unique
-  user           User     @relation(fields: [user_id], references: [id])
+  user           User     @relation(fields: [user_id], references: [email])
   book_id        String
   data_devolucao DateTime
   data_aluguel   DateTime
@@ -35,7 +34,7 @@ model alugados {
 model favoritos {
   id         String   @id @default(uuid())
   user_id    String   @unique
-  user       User     @relation(fields: [user_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [email])
   book_id    String
   created_at DateTime @default(now())
 
@@ -45,7 +44,7 @@ model favoritos {
 model lidos {
   id         String   @id @default(uuid())
   user_id    String   @unique
-  user       User     @relation(fields: [user_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [email])
   book_id    String
   created_at DateTime @default(now())
 

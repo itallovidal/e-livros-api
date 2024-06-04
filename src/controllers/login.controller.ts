@@ -13,10 +13,11 @@ export class LoginUserController {
     @Body(new ZodValidationPipe(loginSchemaDTO)) payload: ILoginSchemaDTO,
   ) {
     // console.log(payload)
-    const accessToken = await this.loginUserService.execute(payload)
+    const { accessToken, name } = await this.loginUserService.execute(payload)
 
     return {
       accessToken,
+      name,
     }
   }
 }

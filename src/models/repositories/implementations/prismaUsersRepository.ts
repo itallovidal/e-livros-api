@@ -1,10 +1,7 @@
-// import { IUsersRepository } from '../../domain/repositories/IUsersRepository'
 import { Injectable } from '@nestjs/common'
 import { PrismaClient } from '@prisma/client'
 import { IUsersRepository } from '../usersRepository'
 import { ICreateUser } from '../../validation'
-// import { ICreateUserDTO } from '../../domain/DTOs/create-user-schema'
-// import { IUser } from '../../domain/entities/IUser'
 
 @Injectable()
 export class PrismaUsersRepository

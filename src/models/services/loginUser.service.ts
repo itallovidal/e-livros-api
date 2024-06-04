@@ -46,9 +46,12 @@ export class LoginUserService {
     // TODO: corrigir essa merda aqui que tá ruim
     if (process.env.ACCESS_TOKEN_SECRET) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { password, ...data } = user
+      const { password, email, ...data } = user
 
-      return sign(data, process.env.ACCESS_TOKEN_SECRET)
+      return {
+        accessToken: sign(data, process.env.ACCESS_TOKEN_SECRET),
+        name: user.name,
+      }
     }
 
     throw new InternalServerErrorException()
