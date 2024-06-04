@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaClient } from '@prisma/client'
-import { IUsersRepository } from '../usersRepository'
-import { ICreateUser } from '../../validation'
+import { IUsersRepository } from '../users.repository'
+import { ISignupSchemaDTO } from '../../../validations/signupSchemaDTO'
 
 @Injectable()
 export class PrismaUsersRepository
@@ -17,7 +17,7 @@ export class PrismaUsersRepository
     this.prisma = new PrismaClient()
   }
 
-  async createUser(user: ICreateUser) {
+  async createUser(user: ISignupSchemaDTO) {
     await this.prisma.user.create({ data: user })
   }
 

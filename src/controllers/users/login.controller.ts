@@ -1,11 +1,14 @@
 import { Body, Controller, HttpCode, Post } from '@nestjs/common'
-import { ZodValidationPipe } from './pipes/zodValidationPipe'
-import { ILoginSchemaDTO, loginSchemaDTO } from '../models/validation'
-import { LoginUserService } from '../models/services/loginUser.service'
+import { ZodValidationPipe } from '../pipes/zodValidationPipe'
+import { LoginService } from '../../models/services/users/login.service'
+import {
+  ILoginSchemaDTO,
+  loginSchemaDTO,
+} from '../../models/validations/loginSchemaDTO'
 
 @Controller('users')
 export class LoginUserController {
-  constructor(private loginUserService: LoginUserService) {}
+  constructor(private loginUserService: LoginService) {}
 
   @Post('login')
   @HttpCode(200)

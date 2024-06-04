@@ -1,17 +1,17 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { ICreateUser } from '../validation'
 import { hash } from 'bcrypt'
 import {
   ISUserRepository,
   IUsersRepository,
-} from '../repositories/usersRepository'
+} from '../../repositories/users/users.repository'
+import { ISignupSchemaDTO } from '../../validations/signupSchemaDTO'
 @Injectable()
-export class CreateUserService {
+export class SignupService {
   constructor(
     @Inject(ISUserRepository) private usersRepository: IUsersRepository,
   ) {}
 
-  async execute(user: ICreateUser) {
+  async execute(user: ISignupSchemaDTO) {
     const { password, ...data } = user
     const encryptedPassword = await hash(password, 5)
 

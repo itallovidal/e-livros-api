@@ -7,14 +7,14 @@ import {
 } from '@nestjs/common'
 import { sign } from 'jsonwebtoken'
 import { compare } from 'bcrypt'
-import { ILoginSchemaDTO } from '../validation'
 import {
   ISUserRepository,
   IUsersRepository,
-} from '../repositories/usersRepository'
+} from '../../repositories/users/users.repository'
+import { ILoginSchemaDTO } from '../../validations/loginSchemaDTO'
 
 @Injectable()
-export class LoginUserService {
+export class LoginService {
   constructor(
     @Inject(ISUserRepository) private usersRepository: IUsersRepository,
   ) {}
