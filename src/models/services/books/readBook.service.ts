@@ -13,7 +13,7 @@ export class ReadBookService {
     private readBooksRepository: IReadBooksRepository,
   ) {}
 
-  async execute({ bookID }: IBookDTO, id: string) {
-    await this.readBooksRepository.readBook(bookID, id)
+  async execute({ bookID }: IBookDTO, userID: string) {
+    await this.readBooksRepository.readBook(bookID, userID)
   }
 }
