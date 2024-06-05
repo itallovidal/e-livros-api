@@ -16,9 +16,6 @@ export class PrismaReadBooksRepository
   }
 
   async readBook(bookID: string, userEmail: string) {
-    console.log('bookID: ' + bookID)
-    console.log('userID: ' + userEmail)
-
     await this.prisma.lidos.create({
       data: { book_id: bookID, user_id: userEmail },
     })

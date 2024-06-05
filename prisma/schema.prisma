@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model usuarios {
   email      String     @id @unique
   name       String
   password   String
@@ -16,13 +16,13 @@ model User {
   favoritos  favoritos?
   lidos      lidos?
 
-  @@map("users")
+  @@map("usuarios")
 }
 
 model alugados {
   id             String   @id @default(uuid())
   user_id        String   @unique
-  user           User     @relation(fields: [user_id], references: [email])
+  user           usuarios @relation(fields: [user_id], references: [email])
   book_id        String
   data_devolucao DateTime
   data_aluguel   DateTime
@@ -34,7 +34,7 @@ model alugados {
 model favoritos {
   id         String   @id @default(uuid())
   user_id    String   @unique
-  user       User     @relation(fields: [user_id], references: [email])
+  user       usuarios @relation(fields: [user_id], references: [email])
   book_id    String
   created_at DateTime @default(now())
 
@@ -44,7 +44,7 @@ model favoritos {
 model lidos {
   id         String   @id @default(uuid())
   user_id    String   @unique
-  user       User     @relation(fields: [user_id], references: [email])
+  user       usuarios @relation(fields: [user_id], references: [email])
   book_id    String
   created_at DateTime @default(now())
 
