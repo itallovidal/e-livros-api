@@ -12,6 +12,8 @@ import { ReadBookService } from '../models/services/books/readBook.service'
 import { UnReadBookService } from '../models/services/books/unReadBook.service'
 import { ISReadBooksRepository } from '../models/repositories/readBooks/readBooks.repository'
 import { PrismaReadBooksRepository } from '../models/repositories/readBooks/implementations/prismaReadBooksRepository'
+import { UsersBookInformationController } from '../controllers/books/usersBookInformation.controller'
+import { UserBookInformationService } from '../models/services/books/userBookInformation.service'
 
 @Module({
   imports: [],
@@ -20,12 +22,14 @@ import { PrismaReadBooksRepository } from '../models/repositories/readBooks/impl
     UnFavoriteBookController,
     ReadBookController,
     UnReadBookController,
+    UsersBookInformationController,
   ],
   providers: [
     FavoriteBookService,
     UnFavoriteBookService,
     ReadBookService,
     UnReadBookService,
+    UserBookInformationService,
     {
       provide: ISFavoriteBooksRepository,
       useClass: PrismaFavoriteBooksRepository,

@@ -15,17 +15,32 @@ export class PrismaReadBooksRepository
     this.prisma = new PrismaClient()
   }
 
-  async readBook(bookID: string, userEmail: string) {
+  async getReadBook(bookID: string, userID: string) {
+    console.log(bookID, userID)
+
+    const book = await this.prisma.lidos.findMany({
+      where: {
+        user_id: userID,
+        book_id: bookID,
+      },
+    })
+
+    if (book.length === 0) {
+      return null
+    }
+
+    return book
+  }
+
+  async readBook(bookID: string, id: string) {
     await this.prisma.lidos.create({
-      data: { book_id: bookID, user_id: userEmail },
+      data: { book_id: bookID, user_id: id },
     })
   }
 
-  async unreadBook(bookID: string, userEmail: string) {
-    await this.prisma.lidos.delete({
-      where: {
-        user_id: userEmail,
-      },
+  async unreadBook(bookID: string, id: string) {
+    await this.prisma.lidos.deleteMany({
+      where: { book_id: bookID, user_id: id },
     })
   }
 }

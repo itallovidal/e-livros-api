@@ -32,7 +32,7 @@ export class UserAuth implements NestMiddleware {
       console.log('Token válido.')
 
       // decodificando o token e add no locals.user
-      res.locals.user = decode(token)
+      res.locals.user = { id: decode(token) }
       console.log('Usuário  decodificado com sucesso.')
       next()
     } catch (e) {

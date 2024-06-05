@@ -8,21 +8,22 @@ datasource db {
 }
 
 model usuarios {
-  email      String     @id @unique
+  id         String      @id @default(uuid())
+  email      String      @unique
   name       String
   password   String
-  created_at DateTime   @default(now())
-  alugados   alugados?
-  favoritos  favoritos?
-  lidos      lidos?
+  created_at DateTime    @default(now())
+  alugados   alugados[]
+  favoritos  favoritos[]
+  lidos      lidos[]
 
   @@map("usuarios")
 }
 
 model alugados {
   id             String   @id @default(uuid())
-  user_id        String   @unique
-  user           usuarios @relation(fields: [user_id], references: [email])
+  user_id        String
+  user           usuarios @relation(fields: [user_id], references: [id])
   book_id        String
   data_devolucao DateTime
   data_aluguel   DateTime
@@ -33,8 +34,8 @@ model alugados {
 
 model favoritos {
   id         String   @id @default(uuid())
-  user_id    String   @unique
-  user       usuarios @relation(fields: [user_id], references: [email])
+  user_id    String
+  user       usuarios @relation(fields: [user_id], references: [id])
   book_id    String
   created_at DateTime @default(now())
 
@@ -43,8 +44,8 @@ model favoritos {
 
 model lidos {
   id         String   @id @default(uuid())
-  user_id    String   @unique
-  user       usuarios @relation(fields: [user_id], references: [email])
+  user_id    String
+  user       usuarios @relation(fields: [user_id], references: [id])
   book_id    String
   created_at DateTime @default(now())
 

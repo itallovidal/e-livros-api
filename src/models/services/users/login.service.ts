@@ -46,10 +46,10 @@ export class LoginService {
     // TODO: corrigir essa merda aqui que tá ruim
     if (process.env.ACCESS_TOKEN_SECRET) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { email } = user
+      const { id } = user
 
       return {
-        accessToken: sign(email, process.env.ACCESS_TOKEN_SECRET),
+        accessToken: sign(id, process.env.ACCESS_TOKEN_SECRET),
         name: user.name,
       }
     }

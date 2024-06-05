@@ -7,8 +7,11 @@
 
 ## Users endpoint
 [ x ] usuário deve fazer signup
-[   ] usuário deve fazer login
+[ x ] usuário deve fazer login
 
 ## Books endpoint
-[   ] usuário deve fazer favoritar livros
-[   ] usuário deve fazer informar que o livro foi lido
+[ x ] usuário deve favoritar livros
+[ x ] usuário deve desfavoritar livros
+[ x ] usuário deve fazer informar que o livro foi lido
+[ x ] usuário deve fazer informar que o livro não foi lido
+[   ] usuário deve alugar o livro

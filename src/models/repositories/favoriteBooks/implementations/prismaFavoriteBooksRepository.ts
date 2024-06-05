@@ -15,20 +15,32 @@ export class PrismaFavoriteBooksRepository
     this.prisma = new PrismaClient()
   }
 
-  async favoriteBook(bookID: string, userEmail: string) {
-    console.log('bookID: ' + bookID)
-    console.log('userID: ' + userEmail)
+  async getFavoriteBook(bookID: string, userID: string) {
+    console.log(bookID, userID)
 
+    const book = await this.prisma.favoritos.findMany({
+      where: {
+        user_id: userID,
+        book_id: bookID,
+      },
+    })
+
+    if (book.length === 0) {
+      return null
+    }
+
+    return book
+  }
+
+  async favoriteBook(bookID: string, id: string) {
     await this.prisma.favoritos.create({
-      data: { book_id: bookID, user_id: userEmail },
+      data: { book_id: bookID, user_id: id },
     })
   }
 
-  async unfavoriteBook(bookID: string, userEmail: string) {
-    await this.prisma.favoritos.delete({
-      where: {
-        user_id: userEmail,
-      },
+  async unfavoriteBook(bookID: string, id: string) {
+    await this.prisma.favoritos.deleteMany({
+      where: { book_id: bookID, user_id: id },
     })
   }
 }

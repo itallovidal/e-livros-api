@@ -13,7 +13,7 @@ export class FavoriteBookService {
     private favoriteBooksRepository: IFavoriteBooksRepository,
   ) {}
 
-  async execute({ bookID }: IBookDTO, email: string) {
-    await this.favoriteBooksRepository.favoriteBook(bookID, email)
+  async execute({ bookID }: IBookDTO, id: string) {
+    await this.favoriteBooksRepository.favoriteBook(bookID, id)
   }
 }
