@@ -22,6 +22,6 @@ export class UsersBookInformationController {
     }
 
     const user = res['locals'].user as { id: string }
-    return wawait this.userBookInformationService.execute({ bookID }, user.id)
+    return await this.userBookInformationService.execute({ bookID }, user.id)
   }
 }
