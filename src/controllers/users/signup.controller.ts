@@ -13,8 +13,10 @@ export class SignupController {
   ) {}
 
   @Post('signup')
-  handle(@Body(new ZodValidationPipe(signupSchemaDTO)) payload: ISignupSchemaDTO) {
-    this.createUserService.execute(payload)
+  async handle(
+    @Body(new ZodValidationPipe(signupSchemaDTO)) payload: ISignupSchemaDTO,
+  ) {
+    await this.createUserService.execute(payload)
     return {
       status: 201,
       message: 'User created successfully!',

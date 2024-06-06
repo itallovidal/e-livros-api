@@ -15,7 +15,6 @@ export class LoginUserController {
   async handle(
     @Body(new ZodValidationPipe(loginSchemaDTO)) payload: ILoginSchemaDTO,
   ) {
-    // console.log(payload)
     const { accessToken, name } = await this.loginUserService.execute(payload)
 
     return {

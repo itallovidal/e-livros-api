@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { BadRequestException, Inject, Injectable } from '@nestjs/common'
 import { hash } from 'bcrypt'
 import {
   ISUserRepository,
@@ -13,6 +13,20 @@ export class SignupService {
 
   async execute(user: ISignupSchemaDTO) {
     const { password, ...data } = user
+
+    const userAlreadyExists = await this.usersRepository.getUserByEmail(
+      data.email,
+    )
+
+    if (userAlreadyExists) {
+      throw new BadRequestException({
+        message: 'Email already exists, do you already have an account?',
+        field: 'email',
+        status: 400,
+        error: 'Bad Request',
+      })
+    }
+
     const encryptedPassword = await hash(password, 5)
 
     const newUser = {
@@ -20,6 +34,6 @@ export class SignupService {
       password: encryptedPassword,
     }
 
-    return this.usersRepository.createUser(newUser)
+    return await this.usersRepository.createUser(newUser)
   }
 }
