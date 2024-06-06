@@ -31,4 +31,14 @@ export class PrismaUsersRepository
 
     return user
   }
+
+  async getUserByID(userID: string): Promise<IUserDAO | null> {
+    const user = await this.prisma.usuarios.findUnique({
+      where: {
+        id: userID,
+      },
+    })
+
+    return user
+  }
 }

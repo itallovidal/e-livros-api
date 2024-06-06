@@ -34,6 +34,14 @@ export class PrismaReadBooksRepository
     })
   }
 
+  async getAllReadBooks(userID: string) {
+    const books = await this.prisma.lidos.findMany({
+      where: { user_id: userID },
+    })
+
+    return books
+  }
+
   async unreadBook(bookID: string, id: string) {
     console.log(bookID)
     console.log(id)

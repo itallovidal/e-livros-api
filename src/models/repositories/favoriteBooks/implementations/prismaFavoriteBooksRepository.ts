@@ -34,6 +34,14 @@ export class PrismaFavoriteBooksRepository
     })
   }
 
+  async getAllFavoriteBooks(userID: string) {
+    const books = await this.prisma.favoritos.findMany({
+      where: { user_id: userID },
+    })
+
+    return books
+  }
+
   async unfavoriteBook(bookID: string, id: string) {
     await this.prisma.favoritos.deleteMany({
       where: { book_id: bookID, user_id: id },
