@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { BadRequestException, Inject, Injectable } from '@nestjs/common'
 
 import { IBookDTO } from '../../validations/bookDTO'
 import {
@@ -14,6 +14,19 @@ export class ReadBookService {
   ) {}
 
   async execute({ bookID }: IBookDTO, userID: string) {
+    const bookAlreadyRegistered = await this.readBooksRepository.getReadBook(
+      bookID,
+      userID,
+    )
+
+    if (bookAlreadyRegistered) {
+      throw new BadRequestException({
+        message: 'Book is already read.',
+        status: 400,
+        error: 'Bad Request',
+      })
+    }
+
     await this.readBooksRepository.readBook(bookID, userID)
   }
 }

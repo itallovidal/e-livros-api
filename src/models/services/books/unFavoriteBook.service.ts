@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { BadRequestException, Inject, Injectable } from '@nestjs/common'
 
 import { IBookDTO } from '../../validations/bookDTO'
 import {
@@ -13,7 +13,20 @@ export class UnFavoriteBookService {
     private favoriteBooksRepository: IFavoriteBooksRepository,
   ) {}
 
-  async execute({ bookID }: IBookDTO, email: string) {
-    await this.favoriteBooksRepository.unfavoriteBook(bookID, email)
+  async execute({ bookID }: IBookDTO, userID: string) {
+    const isBookValid = await this.favoriteBooksRepository.getFavoriteBook(
+      bookID,
+      userID,
+    )
+
+    if (!isBookValid) {
+      throw new BadRequestException({
+        message: 'Book is not in favorite list.',
+        status: 400,
+        error: 'Bad Request',
+      })
+    }
+
+    await this.favoriteBooksRepository.unfavoriteBook(bookID, userID)
   }
 }

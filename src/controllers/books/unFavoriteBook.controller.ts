@@ -13,8 +13,8 @@ export class UnFavoriteBookController {
     @Response({ passthrough: true }) res: Response,
     @Body(new ZodValidationPipe(bookDTO)) payload: IBookDTO,
   ) {
-    const email = res['locals'].user as string
+    const user = res['locals'].user as { id: string }
 
-    await this.unfavoriteBookService.execute(payload, email)
+    await this.unfavoriteBookService.execute(payload, user.id)
   }
 }

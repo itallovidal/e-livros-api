@@ -18,16 +18,12 @@ export class PrismaReadBooksRepository
   async getReadBook(bookID: string, userID: string) {
     console.log(bookID, userID)
 
-    const book = await this.prisma.lidos.findMany({
+    const book = await this.prisma.lidos.findFirst({
       where: {
         user_id: userID,
         book_id: bookID,
       },
     })
-
-    if (book.length === 0) {
-      return null
-    }
 
     return book
   }
@@ -39,6 +35,9 @@ export class PrismaReadBooksRepository
   }
 
   async unreadBook(bookID: string, id: string) {
+    console.log(bookID)
+    console.log(id)
+
     await this.prisma.lidos.deleteMany({
       where: { book_id: bookID, user_id: id },
     })

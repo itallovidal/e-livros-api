@@ -13,7 +13,7 @@ export class UnReadBookController {
     @Response({ passthrough: true }) res: Response,
     @Body(new ZodValidationPipe(bookDTO)) payload: IBookDTO,
   ) {
-    const email = res['locals'].user as string
-    await this.unreadBookService.execute(payload, email)
+    const user = res['locals'].user as { id: string }
+    await this.unreadBookService.execute(payload, user.id)
   }
 }

@@ -18,16 +18,12 @@ export class PrismaFavoriteBooksRepository
   async getFavoriteBook(bookID: string, userID: string) {
     console.log(bookID, userID)
 
-    const book = await this.prisma.favoritos.findMany({
+    const book = await this.prisma.favoritos.findFirst({
       where: {
         user_id: userID,
         book_id: bookID,
       },
     })
-
-    if (book.length === 0) {
-      return null
-    }
 
     return book
   }
