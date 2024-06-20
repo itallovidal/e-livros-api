@@ -12,8 +12,11 @@
 
 ## Books endpoint
 [ x ] usuário deve favoritar livros
+
 [ x ] usuário deve desfavoritar livros
+
 [ x ] usuário deve fazer informar que o livro foi lido
+
 [ x ] usuário deve fazer informar que o livro não foi lido
+
 [ x ] usuário deve conseguir pegar todas as informacões do perfil (dele e do livro)
-[   ] usuário deve alugar o livro
