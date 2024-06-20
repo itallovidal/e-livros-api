@@ -1,22 +1,29 @@
-# Configurações
-[ x ] configurar ambiente (instalar dependencias necessárias)
-[ x ] configurar docker compose
-[ x ] configurar banco de dados ( construir tabelas )
-[ x ] middleware para validar o token
+# Setup do Projeto
+Para que tudo rode perfeitamente precisamos instalar e configurar algumas coisas.
 
-# Controllers e Modelos
+### Baixe as dependências
 
-## Users endpoint
-[ x ] usuário deve fazer signup
-[ x ] usuário deve fazer login
+Para baixar as dependências necessárias para o projeto, utilize:
 
-## Books endpoint
-[ x ] usuário deve favoritar livros
+```bash
+npm install
+```
 
-[ x ] usuário deve desfavoritar livros
+### Configure o Docker
+Crie um container executando o código abaixo ou executando o script do arquivo docker-compose.yaml.
 
-[ x ] usuário deve fazer informar que o livro foi lido
+```bash
+docker compose up -d
+```
 
-[ x ] usuário deve fazer informar que o livro não foi lido
+Depois de criar o docker, temos que configurar as tabelas. Com o script abaixo iremos atualizar nosso container com as tabelas.
 
-[ x ] usuário deve conseguir pegar todas as informacões do perfil (dele e do livro)
+```bash
+npx prisma migrate dev
+```
+
+### Rodando o projeto
+Para startar o projeto basta executar o comando abaixo.
+```bash
+npm run start:dev
+```
