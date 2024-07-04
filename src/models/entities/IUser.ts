@@ -1,4 +1,4 @@
-export interface IUserDAO {
+export interface IUser {
   id: string
   email: string
   name: string

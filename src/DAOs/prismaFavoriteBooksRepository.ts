@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaClient } from '@prisma/client'
-import { IFavoriteBooksRepository } from '../models/repositories/favoriteBooks.repository'
+import { IFavoriteBooksRepository } from '../models/interfaces/favoriteBooks.repository'
 
 @Injectable()
 export class PrismaFavoriteBooksRepository

@@ -4,7 +4,7 @@ import { IBookDTO } from '../../models/validations/bookDTO'
 import {
   IFavoriteBooksRepository,
   ISFavoriteBooksRepository,
-} from '../../models/repositories/favoriteBooks.repository'
+} from '../../models/interfaces/favoriteBooks.repository'
 
 @Injectable()
 export class UnFavoriteBookService {

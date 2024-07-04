@@ -4,11 +4,11 @@ import { IBookDTO } from '../../models/validations/bookDTO'
 import {
   IReadBooksRepository,
   ISReadBooksRepository,
-} from '../../models/repositories/readBooks.repository'
+} from '../../models/interfaces/readBooks.repository'
 import {
   IFavoriteBooksRepository,
   ISFavoriteBooksRepository,
-} from '../../models/repositories/favoriteBooks.repository'
+} from '../../models/interfaces/favoriteBooks.repository'
 
 @Injectable()
 export class UserBookInformationService {

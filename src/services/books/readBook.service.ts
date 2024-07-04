@@ -4,7 +4,7 @@ import { IBookDTO } from '../../models/validations/bookDTO'
 import {
   IReadBooksRepository,
   ISReadBooksRepository,
-} from '../../models/repositories/readBooks.repository'
+} from '../../models/interfaces/readBooks.repository'
 
 @Injectable()
 export class ReadBookService {

@@ -3,7 +3,7 @@ import { hash } from 'bcrypt'
 import {
   ISUserRepository,
   IUsersRepository,
-} from '../../models/repositories/users.repository'
+} from '../../models/interfaces/users.repository'
 import { ISignupSchemaDTO } from '../../models/validations/signupSchemaDTO'
 @Injectable()
 export class SignupService {

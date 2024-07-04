@@ -17,7 +17,6 @@ export class UserAuth implements NestMiddleware {
       throw new UnauthorizedException('Token necessário.')
     }
 
-    // TODO: FAZER VALIDACAO DO ZOD
     if (!process.env.ACCESS_TOKEN_SECRET) {
       throw new InternalServerErrorException(
         'Erro interno de servidor, tente novamente mais tarde.',

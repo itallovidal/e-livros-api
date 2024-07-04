@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaClient } from '@prisma/client'
-import { IUsersRepository } from '../models/repositories/users.repository'
+import { IUsersRepository } from '../models/interfaces/users.repository'
 import { ISignupSchemaDTO } from '../models/validations/signupSchemaDTO'
-import { IUserDAO } from '../models/entities/IUser.dao'
+import { IUser } from '../models/entities/IUser'
 
 @Injectable()
 export class PrismaUsersRepository
@@ -22,7 +22,7 @@ export class PrismaUsersRepository
     await this.prisma.usuarios.create({ data: user })
   }
 
-  async getUserByEmail(email: string): Promise<IUserDAO | null> {
+  async getUserByEmail(email: string): Promise<IUser | null> {
     const user = await this.prisma.usuarios.findUnique({
       where: {
         email,
@@ -32,7 +32,7 @@ export class PrismaUsersRepository
     return user
   }
 
-  async getUserByID(userID: string): Promise<IUserDAO | null> {
+  async getUserByID(userID: string): Promise<IUser | null> {
     const user = await this.prisma.usuarios.findUnique({
       where: {
         id: userID,
