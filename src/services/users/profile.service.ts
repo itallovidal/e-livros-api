@@ -2,15 +2,15 @@ import { Inject, Injectable, NotFoundException } from '@nestjs/common'
 import {
   ISUserRepository,
   IUsersRepository,
-} from '../../repositories/users/users.repository'
+} from '../../models/repositories/users.repository'
 import {
   IReadBooksRepository,
   ISReadBooksRepository,
-} from '../../repositories/readBooks/readBooks.repository'
+} from '../../models/repositories/readBooks.repository'
 import {
   IFavoriteBooksRepository,
   ISFavoriteBooksRepository,
-} from '../../repositories/favoriteBooks/favoriteBooks.repository'
+} from '../../models/repositories/favoriteBooks.repository'
 
 @Injectable()
 export class ProfileService {

@@ -2,7 +2,7 @@ import { Body, Controller, Post, Response } from '@nestjs/common'
 import { ZodValidationPipe } from '../pipes/zodValidationPipe'
 
 import { bookDTO, IBookDTO } from '../../models/validations/bookDTO'
-import { ReadBookService } from '../../models/services/books/readBook.service'
+import { ReadBookService } from '../../services/books/readBook.service'
 
 @Controller('books')
 export class ReadBookController {

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaClient } from '@prisma/client'
-import { IReadBooksRepository } from '../readBooks.repository'
+import { IReadBooksRepository } from '../models/repositories/readBooks.repository'
 
 @Injectable()
 export class PrismaReadBooksRepository

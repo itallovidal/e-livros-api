@@ -1,5 +1,5 @@
-import { ISignupSchemaDTO } from '../../validations/signupSchemaDTO'
-import { IUserDAO } from '../../entities/IUser.dao'
+import { ISignupSchemaDTO } from '../validations/signupSchemaDTO'
+import { IUserDAO } from '../entities/IUser.dao'
 
 export interface IUsersRepository {
   createUser(user: ISignupSchemaDTO): Promise<void>

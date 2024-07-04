@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common'
 
-import { IBookDTO } from '../../validations/bookDTO'
+import { IBookDTO } from '../../models/validations/bookDTO'
 import {
   IReadBooksRepository,
   ISReadBooksRepository,
-} from '../../repositories/readBooks/readBooks.repository'
+} from '../../models/repositories/readBooks.repository'
 import {
   IFavoriteBooksRepository,
   ISFavoriteBooksRepository,
-} from '../../repositories/favoriteBooks/favoriteBooks.repository'
+} from '../../models/repositories/favoriteBooks.repository'
 
 @Injectable()
 export class UserBookInformationService {

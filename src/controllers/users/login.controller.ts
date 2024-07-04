@@ -1,6 +1,6 @@
 import { Body, Controller, HttpCode, Post } from '@nestjs/common'
 import { ZodValidationPipe } from '../pipes/zodValidationPipe'
-import { LoginService } from '../../models/services/users/login.service'
+import { LoginService } from '../../services/users/login.service'
 import {
   ILoginSchemaDTO,
   loginSchemaDTO,

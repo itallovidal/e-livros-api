@@ -6,7 +6,7 @@ import {
   Response,
 } from '@nestjs/common'
 
-import { UserBookInformationService } from '../../models/services/books/userBookInformation.service'
+import { UserBookInformationService } from '../../services/books/userBookInformation.service'
 
 @Controller('books')
 export class UsersBookInformationController {

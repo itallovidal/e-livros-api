@@ -1,6 +1,6 @@
 import { Body, Controller, Inject, Post } from '@nestjs/common'
 import { ZodValidationPipe } from '../pipes/zodValidationPipe'
-import { SignupService } from '../../models/services/users/signup.service'
+import { SignupService } from '../../services/users/signup.service'
 import {
   signupSchemaDTO,
   ISignupSchemaDTO,

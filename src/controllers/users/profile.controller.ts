@@ -1,5 +1,5 @@
 import { Controller, Get, HttpCode, Response } from '@nestjs/common'
-import { ProfileService } from '../../models/services/users/profile.service'
+import { ProfileService } from '../../services/users/profile.service'
 
 @Controller('users')
 export class ProfileController {

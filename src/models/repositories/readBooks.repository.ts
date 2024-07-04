@@ -1,4 +1,4 @@
-import { IBookDAO } from '../../entities/IBookDAO'
+import { IBookDAO } from '../entities/IBookDAO'
 
 export interface IReadBooksRepository {
   readBook(bookID: string, id: string): Promise<void>

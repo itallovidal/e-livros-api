@@ -1,10 +1,10 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common'
 
-import { IBookDTO } from '../../validations/bookDTO'
+import { IBookDTO } from '../../models/validations/bookDTO'
 import {
   IReadBooksRepository,
   ISReadBooksRepository,
-} from '../../repositories/readBooks/readBooks.repository'
+} from '../../models/repositories/readBooks.repository'
 
 @Injectable()
 export class ReadBookService {

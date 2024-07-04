@@ -3,8 +3,8 @@ import { hash } from 'bcrypt'
 import {
   ISUserRepository,
   IUsersRepository,
-} from '../../repositories/users/users.repository'
-import { ISignupSchemaDTO } from '../../validations/signupSchemaDTO'
+} from '../../models/repositories/users.repository'
+import { ISignupSchemaDTO } from '../../models/validations/signupSchemaDTO'
 @Injectable()
 export class SignupService {
   constructor(

@@ -10,8 +10,8 @@ import { compare } from 'bcrypt'
 import {
   ISUserRepository,
   IUsersRepository,
-} from '../../repositories/users/users.repository'
-import { ILoginSchemaDTO } from '../../validations/loginSchemaDTO'
+} from '../../models/repositories/users.repository'
+import { ILoginSchemaDTO } from '../../models/validations/loginSchemaDTO'
 
 @Injectable()
 export class LoginService {

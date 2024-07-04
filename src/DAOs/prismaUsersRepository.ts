@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaClient } from '@prisma/client'
-import { IUsersRepository } from '../users.repository'
-import { ISignupSchemaDTO } from '../../../validations/signupSchemaDTO'
-import { IUserDAO } from '../../../entities/IUser.dao'
+import { IUsersRepository } from '../models/repositories/users.repository'
+import { ISignupSchemaDTO } from '../models/validations/signupSchemaDTO'
+import { IUserDAO } from '../models/entities/IUser.dao'
 
 @Injectable()
 export class PrismaUsersRepository
